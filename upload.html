@@ -1,0 +1,57 @@
+<?php
+session_start();
+?>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Script Download</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
+</head>
+
+<body>
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                    <div class="card mb-5">
+                        <div class="card-body p-sm-5">
+                            <h2 class="text-center mb-4">Upload</h2>
+                            <form action="upload.php" method="post" enctype="multipart/form-data" class="form-signin">
+                        <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Password" required>
+				<br>
+                        <label class="btn btn-primary btn-block">
+                            Browse <input type="file" name="fileToUpload" id="filetoUpload"
+                                onchange="$('#upload-file-info').html(this.files[0].name)" hidden>
+                        </label>
+                        <p class='label label-info' id="upload-file-info"></p>
+                        <p class='label label-info' id="retval"></p>
+                        <button name="submit" class="btn btn-lg btn-primary btn-block" type="submit">Verify and upload
+                        </button>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="text-align: center;"><a class="btn btn-primary" role="button" href="index.php">Back</a></div>
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
+    <?php
+        if(isset($_SESSION['message']))
+        {
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+    ?>
+</body>
+
+</html>
